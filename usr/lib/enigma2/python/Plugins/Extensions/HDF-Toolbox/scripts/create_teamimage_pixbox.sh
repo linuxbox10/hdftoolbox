@@ -1,6 +1,6 @@
 #!/bin/sh
 ##Teamimage Script by HDFreaks.cc
-##pixbox - 19.07.2018
+##pixbox - 24.09.2017
 
 echo "Ein Teamimage pixbox Edition wird erstellt..."
 echo
@@ -11,7 +11,6 @@ ln -s /usr/share/enigma2/spinner /usr/share/enigma2/skin_default/spinner
 echo
 echo "remove all picon"
 rm -f /usr/share/enigma2/picon/*.* > /dev/null 2>&1
-echo "config.usage.hdfpicon=false" >> /etc/enigma2/settings
 echo
 echo "remove preinstalled unwanted plugins"
 opkg remove --force-depends enigma2-plugin-settings-defaultsat
@@ -26,7 +25,8 @@ opkg remove --force-depends enigma2-plugin-extensions-cdinfo
 opkg remove --force-depends enigma2-plugin-extensions-dvdburn
 echo
 echo "install depends"
-opkg install python-youtube-dl \
+opkg install livestreamersrv \
+python-youtube-dl \
 python-mutagen \
 python-textutils
 echo
@@ -35,7 +35,7 @@ opkg install enigma2-plugin-systemplugins-automaticvolumeadjustment
 echo
 echo "install extensions"
 opkg install enigma2-plugin-extensions-customsubservices \
-enigma2-plugin-extensions-streamlinkserver \
+enigma2-plugin-extensions-albatros \
 enigma2-plugin-extensions-mediainfo \
 enigma2-plugin-extensions-mediaportal \
 enigma2-plugin-extensions-piconsupdater \
@@ -58,7 +58,3 @@ echo
 echo "Das Teamimage pixbox Edition ist damit fertig"
 echo "Viel Spass damit wuenscht pixbox"
 echo
-echo "Automatischer Enigma2 Neustart in 5 Sekunden!"
-echo
-sleep 5
-killall -9 enigma2

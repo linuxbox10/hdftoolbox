@@ -4,7 +4,6 @@ target=`cat /proc/mounts | grep -m 1 media/net | cut -d" " -f2`
 
 if [ -z $target ]
 	then
-	echo "looking for a mount like /media/net/xxx"
 	echo "No net mount found to use for speedtest ... exit"
 	echo
 	exit

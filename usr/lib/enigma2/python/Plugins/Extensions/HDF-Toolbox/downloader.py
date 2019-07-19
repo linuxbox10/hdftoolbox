@@ -77,16 +77,13 @@ try:
         box = "mutant51"
         boxname = "VU+Ultimo4K"
     #GigaBlues
-#    elif getBoxType().startswith('gb'):
-#        box = "gigablue"
-#        boxname = "GigaBlue"
+    elif getBoxType().startswith('gb'):
+        box = "gigablue"
+        boxname = "GigaBlue"
     elif getBoxType() == "gbquad":
         box = "gbquad"
         boxname = "GigaBlue"
-    elif getBoxType() == "gbquad4k":
-        box = "gbquad4k"
-        boxname = "GB UHD QUAD 4K"
-	#Technomates
+    #Technomates
     elif getBoxType() == "tmtwin":
         box = "tmtwin"
         boxname = "TM-Twin"
@@ -926,13 +923,12 @@ except:
 	import http.client as httplib
 
 def connected():
-	c = httplib.HTTPConnection("hdfreaks.cc", timeout=3)
+	c = httplib.HTTPConnection("www.google.com", timeout=2)
 	try:
 		c.request("HEAD", "/")
 		c.close()
 		return True
 	except:
-		print "Server offline"
 		c.close()
 		return False
 
